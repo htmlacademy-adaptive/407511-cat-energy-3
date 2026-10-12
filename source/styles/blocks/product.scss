@@ -1,0 +1,115 @@
+.product {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  row-gap: 13px;
+  padding: 12px 0 19px;
+
+  border-bottom: 1px solid $border-color-special;
+
+  &:first-child {
+    border-top: 1px solid $border-color-special;
+  }
+
+  @media (min-width: $width-tablet) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 23px 30px;
+    align-items: baseline;
+    padding: 25px 38px 27px;
+    border-left: 1px solid $border-color-special;
+    border-right: 1px solid $border-color-special;
+  }
+
+  @media (min-width: $width-desktop) {
+    grid-template-columns: 1fr 1fr 244px;
+    gap: 0 40px;
+    align-items: center;
+    padding: 15px 0 16px;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+.product__title {
+  margin: 0;
+
+  @include title-uppercase(16);
+  color: $text-color-special;
+
+  @media (min-width: $width-tablet) {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.product__description {
+  display: grid;
+  grid-template-columns: 1fr 93px;
+  column-gap: 20px;
+  margin: 0;
+
+  @include text(14,14);
+
+  @media (min-width: $width-tablet) {
+    grid-template-columns: 1fr auto;
+    // grid-template-columns: 1fr 83px;
+    column-gap: 10px;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  @media (min-width: $width-desktop) {
+    grid-template-columns: 1fr auto;
+    justify-self: stretch;
+    margin-top: 5px;
+  }
+}
+
+.product__unit {
+  justify-self: start;
+
+  @media (min-width: $width-tablet) {
+    justify-self: end;
+  }
+
+  @media (min-width: $width-desktop) {
+    justify-self: start;
+  }
+}
+
+.product__price {
+  justify-self: end;
+
+  @media (min-width: $width-tablet) {
+    min-width: 83px;
+    text-align: right;
+  }
+
+  @media (min-width: $width-desktop) {
+    justify-self: start;
+    min-width: 43px;
+    text-align: left;
+  }
+}
+
+.product__button {
+  margin-top: 2px;
+
+  @media (min-width: $width-tablet) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0;
+  }
+
+  @media (min-width: $width-desktop) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}

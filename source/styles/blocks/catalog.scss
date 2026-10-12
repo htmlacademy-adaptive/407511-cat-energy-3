@@ -1,0 +1,17 @@
+.catalog {
+  background-color: $bg-color-basic;
+}
+
+.catalog__list {
+  margin: 0;
+
+  @media (min-width: $width-tablet) {
+    width: calc(100% - 2 * $page-padding-tablet);
+    margin: 0 auto;
+  }
+
+  @media (min-width: $width-desktop) {
+    width: calc(100% - 2 * $page-padding-desktop);
+    max-width: $width-content;
+  }
+}

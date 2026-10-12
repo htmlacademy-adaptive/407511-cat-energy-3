@@ -1,0 +1,61 @@
+.social {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 21px 0 19px;
+  list-style: none;
+
+  @media (min-width: $width-tablet) {
+    padding: 8px 0 7px;
+  }
+}
+
+.social__link {
+  display: block;
+  width: 28px;
+  height: 22px;
+  color: $icon-color-additional;
+  transition: color 0.2s ease;
+
+  &::before {
+    display: block;
+    width: 28px;
+    height: 22px;
+    content: "";
+    background-color: currentColor;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $icon-color-hover;
+  }
+
+  &:active {
+    color: $icon-color-active;
+  }
+
+  &--vk {
+    &::before {
+      mask-image: url("../../icons/stack.svg#social-vk");
+      mask-size: 27px 17px;
+    }
+  }
+
+  &--youtube {
+    &::before {
+      mask-image: url("../../icons/stack.svg#social-youtube");
+      mask-size: 24px 19px;
+    }
+  }
+
+  &--tg {
+    &::before {
+      mask-image: url("../../icons/stack.svg#social-telegram");
+      mask-size: 21px 18px;
+    }
+  }
+}

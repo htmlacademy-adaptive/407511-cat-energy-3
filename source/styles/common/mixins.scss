@@ -1,0 +1,62 @@
+@use "sass:list";
+
+@mixin font-face ($family, $weight, $style, $src) {
+  @font-face {
+    font-family: $family;
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+    src: $src;
+  }
+}
+
+@mixin title ($font-size, $line-height:$font-size) {
+  font-family: $font-secondary;
+  font-size: $font-size + px;
+  line-height: $line-height + px;
+  font-weight: 400;
+}
+
+@mixin title-uppercase ($args...) {
+  @include title($args...);
+  text-transform: uppercase;
+}
+
+@mixin link-uppercase ($font-size, $line-height:$font-size) {
+  font-family: $font-secondary;
+  font-size: $font-size + px;
+  line-height: $line-height + px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+@mixin input ($font-size, $line-height:$font-size) {
+  font-family: $font-secondary;
+  font-size: $font-size + px;
+  line-height: $line-height + px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $input-text-color;
+  background-color: $input-bg-color;
+}
+
+@mixin text ($args...) {
+  @if length($args) > 0 {
+    font-size: list.nth($args, 1) + px;
+
+    @if length($args) > 1 {
+      line-height: list.nth($args, 2) + px;
+    }
+    // Если миксин вызван с одним аргументом, то высота строки равна размеру шрифта
+    @else {
+      line-height: list.nth($args, 1) + px;
+    }
+  }
+  // Если миксин вызван без аргументов, то применияются параметры текста по умолчанию
+  @else {
+    font-size: $font-size-basic;
+    line-height: $line-height-basic;
+  }
+  color: $text-color-secondary;
+}

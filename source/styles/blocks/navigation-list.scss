@@ -1,0 +1,91 @@
+.navigation-list {
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: $width-tablet) {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 26px;
+  }
+
+  @media (min-width: $width-desktop) {
+    justify-content: flex-end;
+    gap: 10px 29px;
+  }
+
+  &--index .navigation-list__link {
+    @media (min-width: $width-desktop) {
+      text-decoration-color: $icon-color-contrast;
+    }
+  }
+
+  &--index .navigation-list__link--current {
+    @media (min-width: $width-desktop) {
+      &::after {
+        background-color: $icon-color-contrast;
+      }
+    }
+  }
+}
+
+.navigation-list__item {
+  border-bottom: 1px solid $border-color;
+
+  @media (min-width: $width-tablet) {
+    border-bottom: none;
+  }
+}
+
+.navigation-list__link {
+  display: block;
+  padding: 22px $page-padding-mobile 24px;
+
+  @include link-uppercase(20);
+  color: inherit;
+  transition: opacity 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  @media (min-width: $width-tablet) {
+    padding: 14px 4px 12px;
+    font-size: 18px;
+    line-height: 24px;
+    border-bottom: none;
+  }
+
+  @media (min-width: $width-desktop) {
+    padding: 19px 2px 16px;
+    font-size: 20px;
+    line-height: 100%;
+  }
+
+  &--current {
+    position: relative;
+
+    @media (min-width: $width-tablet) {
+      &::after {
+        position: absolute;
+        content: "";
+        left: 4px;
+        right: 4px;
+        height: 2px;
+        bottom: 3px;
+        background-color: $icon-color-accent;
+      }
+    }
+
+    @media (min-width: $width-desktop) {
+      &::after {
+        left: 2px;
+        right: 2px;
+      }
+    }
+  }
+}
