@@ -3,6 +3,7 @@
 
   @include input(16, 18);
   border: 1px solid $input-border;
+  transition: border 0.2s ease;
 
   &[type="number"] {
     appearance: textfield;
